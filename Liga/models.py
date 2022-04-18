@@ -10,7 +10,7 @@ class League(models.Model):
     no_of_teams = models.IntegerField()
     country = models.CharField(default="Srbija", max_length=25)
     season = models.IntegerField(default=2022)
-    
+    year = models.TextField(default="2022")
 
 
     def __str__(self):
