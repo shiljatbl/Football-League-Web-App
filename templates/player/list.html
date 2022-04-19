@@ -3,6 +3,12 @@
 
 
 {% block content %}
-<p>{{ player.name }}</p>
-<p>{{ player.team }}</p>
+
+
+
+{% for instance in object_list %}
+
+    <p>{{ instance.id }} - <a href="/player/{{ instance.id }}">{{ instance.name }}</a> - {{ instance.team.name }}</p>
+{% endfor %}
+
 {% endblock %}

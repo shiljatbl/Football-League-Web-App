@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 
 
@@ -36,6 +36,9 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("player-detail", kwargs={"id": self.id})
 
 
 class Game(models.Model):
