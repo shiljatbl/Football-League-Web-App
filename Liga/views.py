@@ -27,7 +27,7 @@ def player_create_view(request):
     form = PlayerForm(request.POST or None)
     if form.is_valid():
         form.save()
-    
+        form = PlayerForm()
 
     context = {
         'form': form
