@@ -4,10 +4,16 @@
 
 {% block content %}
 
-<form method="POST"> {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
-<p>{{ player.name }}</p>
-<p>{{ player.team }}</p>
+<div class="card shadow mb-4 ml-4 mr-4 w-50">
+    <div class="card-header py-3">
+        <h1>Create Player</h1>
+    </div>
+    <div class="card-body">
+        <form method="POST"> {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</div>
+
 {% endblock %}

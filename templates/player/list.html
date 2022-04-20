@@ -11,7 +11,18 @@
 
 <div class="card shadow mb-4 ml-4 mr-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+        <div class="row">
+            <div  class="col">
+                <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+            </div>
+
+            <div align="right" class="col" >
+                <a href="/player/create" class="btn btn-primary">Create Player</a>
+            </div>
+
+        </div>
+        
+        
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -34,10 +45,8 @@
                             <td>{{ instance.id }}</td>
                             <td><a href="/player/{{ instance.id }}">{{ instance.name }}</a></td>
                             <td>{{ instance.team.name }}</td>
-                            <td>
-                            <a href="/player/{{ instance.id }}/update" class="btn btn-primary">
-                                Update
-                            </a></td>
+                            
+                            
                         </tr>
                     {% endfor %}
 

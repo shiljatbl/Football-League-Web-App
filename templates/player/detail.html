@@ -7,7 +7,19 @@
 
 <div class="card shadow mb-4 ml-4 mr-4 w-50">
     <div class="card-header py-3">
-        <h1>{{ player.name }}</h1>
+        
+        <div class="row">
+            <div  class="col">
+                <h1 class="m-0 font-weight-bold text-primary">{{ player.name }}</h1>
+            </div>
+    
+            <div align="right" class="col" >
+                <a href="/player/{{ player.id }}/update" class="btn btn-primary">Update</a>
+            </div>
+        </div>
+        
+        
+
     </div>
     <div class="card-body">
         <div class="table-responsive">
