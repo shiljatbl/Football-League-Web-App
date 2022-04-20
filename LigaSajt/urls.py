@@ -20,7 +20,8 @@ from Liga import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name='home'),
-    path('player/<int:my_id>', views.player_detail_view, name='player-detail'),
-    path('create/', views.player_create_view, name='create-player'),
+    path('player/<int:id>', views.player_detail_view, name='player-detail'),
+    path('player/<int:id>/update/', views.player_update_view, name='update-player'),
+    path('player/create/', views.player_create_view, name='create-player'),
     path('players/', views.player_list_view, name='player-list')
 ]

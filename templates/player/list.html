@@ -34,7 +34,10 @@
                             <td>{{ instance.id }}</td>
                             <td><a href="/player/{{ instance.id }}">{{ instance.name }}</a></td>
                             <td>{{ instance.team.name }}</td>
-                            
+                            <td>
+                            <a href="/player/{{ instance.id }}/update" class="btn btn-primary">
+                                Update
+                            </a></td>
                         </tr>
                     {% endfor %}
 

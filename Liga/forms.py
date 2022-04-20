@@ -8,6 +8,9 @@ class PlayerForm(forms.ModelForm):
         model = Player
         fields = [
             'name',
-            'team'
+            'team',
+            'age',
+            'position',
+            'iscaptain'
 
         ]

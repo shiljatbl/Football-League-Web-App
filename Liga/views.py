@@ -12,10 +12,10 @@ def home_view(request, *args, **kwargs):
     return render(request, "index.html", my_context)
 
 
-def player_detail_view(request, my_id):
+def player_detail_view(request, id):
     
     #player = Player.objects.get(id=my_id)
-    player = get_object_or_404(Player,id=my_id)
+    player = get_object_or_404(Player,id=id)
 
     context = {
         'player': player
@@ -29,6 +29,16 @@ def player_create_view(request):
         form.save()
         form = PlayerForm()
 
+    context = {
+        'form': form
+    }
+    return render(request, "player/create.html", context)
+
+def player_update_view(request, id=id):
+    obj = get_object_or_404(Player, id=id)
+    form = PlayerForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
     context = {
         'form': form
     }
