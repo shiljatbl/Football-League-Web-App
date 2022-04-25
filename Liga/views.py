@@ -4,11 +4,12 @@ from .models import Player
 from .forms import NewUserForm, PlayerForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
-
+@login_required(login_url='/login/')
 def home_view(request, *args, **kwargs):
     
     my_context = {
@@ -16,7 +17,7 @@ def home_view(request, *args, **kwargs):
     }
     return render(request, "index.html", my_context)
 
-
+@login_required(login_url='/login/')
 def player_detail_view(request, id):
     
     #player = Player.objects.get(id=my_id)
@@ -76,8 +77,7 @@ def register(request):
     return render(request, "register.html", context)
 
 def login(request):
-    #queryset = Player.objects.all()
-
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -90,7 +90,7 @@ def login(request):
 
         
 
-    context = {
+    context = { 
         
     }
 
