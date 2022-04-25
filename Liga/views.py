@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 from .models import Player
-from .forms import PlayerForm
+from .forms import NewUserForm, PlayerForm
+from django.contrib.auth.forms import UserCreationForm
+
 # Create your views here.
 
 def home_view(request, *args, **kwargs):
@@ -54,9 +56,17 @@ def player_list_view(request):
     return render(request, "player/list.html", context)
 
 def register(request):
-    #queryset = Player.objects.all()
+    
+    form = NewUserForm()
+
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+    
+    
     context = {
-        
+            'form': form     
     }
 
     return render(request, "register.html", context)

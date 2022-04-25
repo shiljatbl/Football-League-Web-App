@@ -21,44 +21,45 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form method="POST" action="/register/">
+                            <form class="user" method="POST" action="/register">
                                 {% csrf_token %}
                                 
+                                
+
                                 <div class="form-group row">
-                                    <div class="fieldWrapper">
-                                        {{ form.username.errors }}
-                                        <label for="{{ form.username.id_for_label }}">Username:</label>
-                                        {{ form.username }}
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="First Name">
                                     </div>
-                                    
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Last Name">
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="fieldWrapper">
-                                        {{ form.email.errors }}
-                                        <label for="{{ form.email.id_for_label }}">E-mail:</label>
-                                        {{ form.email }}
-                                    </div>
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="fieldWrapper">
-                                            {{ form.password1.errors }}
-                                            <label for="{{ form.password1.id_for_label }}">Password:</label>
-                                            {{ form.password1 }}
-                                        </div>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="fieldWrapper">
-                                            {{ form.password2.errors }}
-                                            <label for="{{ form.password2.id_for_label }}">Repeat password:</label>
-                                            {{ form.password2 }}
-                                        </div>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-
-                                <input type="submit" value="Register">
-
+                                <input type="submit" value="Register" class="btn btn-primary btn-user btn-block">
+                                    
                                 
+                                <hr hidden>
+                                <a href="index.html" class="btn btn-google btn-user btn-block" hidden>
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block" hidden>
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
                             </form>
                             <hr>
                             <div class="text-center">
