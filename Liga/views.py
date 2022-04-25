@@ -52,3 +52,19 @@ def player_list_view(request):
     }
 
     return render(request, "player/list.html", context)
+
+def register(request):
+    #queryset = Player.objects.all()
+    context = {
+        
+    }
+
+    return render(request, "register.html", context)
+
+def login(request):
+    #queryset = Player.objects.all()
+    context = {
+        
+    }
+
+    return render(request, "login.html", context)
