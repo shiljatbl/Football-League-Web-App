@@ -13,11 +13,11 @@
     <div class="card-header py-3">
         <div class="row">
             <div  class="col">
-                <h1 class="m-0 font-weight-bold text-primary">All Players</h1>
+                <h1 class="m-0 font-weight-bold text-primary">All Teams</h1>
             </div>
 
             <div align="right" class="col" >
-                <a href="/player/create" class="btn btn-primary">Create Player</a>
+                <a href="/team/create" class="btn btn-primary">Create Team</a>
             </div>
 
         </div>
@@ -30,8 +30,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Team</th>
+                        <th>Team Name</th>
+                        
                         
                     </tr>
                 </thead>
@@ -43,8 +43,8 @@
                         
                         <tr>
                             <td>{{ instance.id }}</td>
-                            <td><a href="/player/{{ instance.id }}">{{ instance.name }}</a></td>
-                            <td>{{ instance.team.name }}</td>
+                            <td><a href="/team/{{ instance.id }}">{{ instance.name }}</a></td>
+                            
                             
                             
                         </tr>

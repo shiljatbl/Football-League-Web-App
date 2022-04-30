@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from .models import Player
-from .forms import NewUserForm, PlayerForm, LoginForm
+from .models import Player, Team, League
+from .forms import NewUserForm, PlayerForm, LoginForm, TeamForm, LeagueForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
@@ -101,3 +101,94 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("/login")
+
+
+    #Team views
+@login_required(login_url="/login")
+def team_detail_view(request, id):
+    
+    
+    team = get_object_or_404(Team,id=id)
+    player_list = Player.objects.filter(team=team)
+    context = {
+        'team': team,
+        'player_list': player_list
+    }
+    return render(request, "team/detail.html", context)
+@login_required(login_url="/login")
+def team_create_view(request):
+    
+    form = TeamForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = TeamForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, "team/create.html", context)
+@login_required(login_url="/login")
+def team_update_view(request, id=id):
+    obj = get_object_or_404(Team, id=id)
+    form = TeamForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "team/create.html", context)
+
+@login_required(login_url="/login")
+def team_list_view(request):
+    queryset = Team.objects.all()
+    context = {
+        "object_list" : queryset
+    }
+
+    return render(request, "team/list.html", context)
+
+
+
+#League views
+@login_required(login_url="/login")
+def league_detail_view(request, id):
+    
+    
+    league = get_object_or_404(League,id=id)
+    team_list = Team.objects.filter(league=league)
+    context = {
+        'league': league,
+        'team_list': team_list
+    }
+    return render(request, "league/detail.html", context)
+@login_required(login_url="/login")
+def league_create_view(request):
+    
+    form = LeagueForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = LeagueForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, "league/create.html", context)
+@login_required(login_url="/login")
+def league_update_view(request, id=id):
+    obj = get_object_or_404(League, id=id)
+    form = LeagueForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "league/create.html", context)
+
+@login_required(login_url="/login")
+def league_list_view(request):
+    queryset = League.objects.all()
+    context = {
+        "object_list" : queryset
+    }
+
+    return render(request, "league/list.html", context)

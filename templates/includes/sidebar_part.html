@@ -29,7 +29,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item {% if filename == "charts" %}active{% endif %}">
-                <a class="nav-link " href="/charts.html">
+                <a class="nav-link " href="{% url 'league-list' %}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Leagues</span></a>
             </li>
@@ -55,7 +55,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item {% if filename == "charts" %}active{% endif %}">
-                <a class="nav-link " href="{% url 'create-player' %}">
+                <a class="nav-link " href="{% url 'team-list' %}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Teams</span></a>
             </li>
