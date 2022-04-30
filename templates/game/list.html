@@ -29,9 +29,11 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Home Team</th>
-                        <th>Away Team</th>
+                        <th>Date</th>
+                        <th>Teams</th>
+                        <th>Result</th>
+                        
+                        
                         
                         
                     </tr>
@@ -43,9 +45,9 @@
                     {% for instance in object_list %}
                         
                         <tr>
-                            <td>{{ instance.id }}</td>
-                            <td><a href="/game/{{ instance.id }}">{{ instance.home_team.name }}</a></td>
-                            <td><a href="/game/{{ instance.id }}">{{ instance.away_team.name }}</a></td>
+                            <td>{{ instance.date }}</td>
+                            <td><a href="/game/{{ instance.id }}">{{ instance.home_team.name }} - {{ instance.away_team.name }}</a></td>
+                            <td><p>{{ instance.home_goals}}:{{ instance.away_goals}}</p></td>
                             
                             
                             
