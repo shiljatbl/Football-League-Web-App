@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
-
+@login_required(login_url="/login")
 def home_view(request, *args, **kwargs):
     
     my_context = {
@@ -18,7 +18,7 @@ def home_view(request, *args, **kwargs):
     }
     return render(request, "index.html", my_context)
 
-
+@login_required(login_url="/login")
 def player_detail_view(request, id):
     
     #player = Player.objects.get(id=my_id)
@@ -28,7 +28,7 @@ def player_detail_view(request, id):
         'player': player
     }
     return render(request, "player/detail.html", context)
-
+@login_required(login_url="/login")
 def player_create_view(request):
     
     form = PlayerForm(request.POST or None)
@@ -40,7 +40,7 @@ def player_create_view(request):
         'form': form
     }
     return render(request, "player/create.html", context)
-
+@login_required(login_url="/login")
 def player_update_view(request, id=id):
     obj = get_object_or_404(Player, id=id)
     form = PlayerForm(request.POST or None, instance=obj)
@@ -51,7 +51,7 @@ def player_update_view(request, id=id):
     }
     return render(request, "player/create.html", context)
 
-
+@login_required(login_url="/login")
 def player_list_view(request):
     queryset = Player.objects.all()
     context = {
@@ -100,4 +100,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("/")
+    return redirect("/login")
