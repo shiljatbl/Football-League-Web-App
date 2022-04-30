@@ -25,8 +25,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Date</th>
                     <th>Home Team</th>
+                    <th>Result</th>
                     <th>Away Team</th>
                     
                     
@@ -36,8 +37,9 @@
             <tbody>
                 
                 <tr>
-                    <td>{{ game.id }}</td>
+                    <td>{{ game.date }}</td>
                     <td>{{ game.home_team.name }}</td>
+                    <td>{{ game.home_goals }}:{{ game.away_goals }}</td>
                     <td>{{ game.away_team.name }}</td>
                 </tr>    
                 
