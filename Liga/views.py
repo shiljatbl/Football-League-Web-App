@@ -16,7 +16,7 @@ def home_view(request, *args, **kwargs):
     my_context = {
         "datum" : "4.4.2022"
     }
-    return render(request, "index.html", my_context)
+    return render(request, "home/index.html", my_context)
 
 @login_required(login_url="/login")
 def player_detail_view(request, id):
@@ -68,14 +68,14 @@ def register(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('/login')
     
     
     context = {
             'form': form     
     }
 
-    return render(request, "register.html", context)
+    return render(request, "accounts/register.html", context)
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -96,7 +96,7 @@ def login_view(request):
         else:
             msg = 'Error validating the form'
 
-    return render(request, "login.html", {"form": form, "msg": msg})     
+    return render(request, "accounts/login.html", {"form": form, "msg": msg})     
 
 def logout_view(request):
     logout(request)

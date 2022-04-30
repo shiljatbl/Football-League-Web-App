@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-futbol"></i>
                 </div>
@@ -41,19 +41,7 @@
                     <span>Matches</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item {% if filename == "charts" %}active{% endif %}">
-                <a class="nav-link " href="/register">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Register</span></a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item {% if filename == "charts" %}active{% endif %}">
-                <a class="nav-link " href="/login">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Login</span></a>
-            </li>
+            
 
            
 
