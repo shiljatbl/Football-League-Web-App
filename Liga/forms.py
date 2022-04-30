@@ -1,6 +1,6 @@
 from socket import fromshare
 from django import forms
-from .models import Player, Team, League
+from .models import Player, Team, League, Game
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -36,6 +36,20 @@ class LeagueForm(forms.ModelForm):
             'country',
             'season',
             'year'
+
+        ]
+
+class GameForm(forms.ModelForm):
+    class Meta:
+        model = Game
+        fields = [
+            'date',
+            'game_week',
+            'home_team',
+            'away_team',
+            'home_goals',
+            'away_goals',
+            "isplayed"
 
         ]
 

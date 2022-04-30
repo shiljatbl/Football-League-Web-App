@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+<div class="card shadow mb-4 ml-4 mr-4">
+    <div class="card-header py-3">
+        <div class="row">
+            <div  class="col">
+                <h1 class="m-0 font-weight-bold text-primary">All Games</h1>
+            </div>
+
+            <div align="right" class="col" >
+                <a href="/game/create" class="btn btn-primary">Create Game</a>
+            </div>
+
+        </div>
+        
+        
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Home Team</th>
+                        <th>Away Team</th>
+                        
+                        
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    
+                    
+                    {% for instance in object_list %}
+                        
+                        <tr>
+                            <td>{{ instance.id }}</td>
+                            <td><a href="/game/{{ instance.id }}">{{ instance.home_team.name }}</a></td>
+                            <td><a href="/game/{{ instance.id }}">{{ instance.away_team.name }}</a></td>
+                            
+                            
+                            
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

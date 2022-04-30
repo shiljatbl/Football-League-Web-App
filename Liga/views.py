@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from .models import Player, Team, League
-from .forms import NewUserForm, PlayerForm, LoginForm, TeamForm, LeagueForm
+from .models import Player, Team, League, Game
+from .forms import NewUserForm, PlayerForm, LoginForm, TeamForm, LeagueForm, GameForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
@@ -192,3 +192,50 @@ def league_list_view(request):
     }
 
     return render(request, "league/list.html", context)
+
+
+
+
+#Game views
+@login_required(login_url="/login")
+def game_detail_view(request, id):
+    
+    
+    game = get_object_or_404(Game,id=id)
+    
+    context = {
+        'game': game,
+        
+    }
+    return render(request, "game/detail.html", context)
+@login_required(login_url="/login")
+def game_create_view(request):
+    
+    form = GameForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = GameForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, "game/create.html", context)
+@login_required(login_url="/login")
+def game_update_view(request, id=id):
+    obj = get_object_or_404(Game, id=id)
+    form = GameForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "game/create.html", context)
+
+@login_required(login_url="/login")
+def game_list_view(request):
+    queryset = Game.objects.all()
+    context = {
+        "object_list" : queryset
+    }
+
+    return render(request, "game/list.html", context)

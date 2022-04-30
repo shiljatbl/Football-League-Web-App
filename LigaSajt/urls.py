@@ -35,4 +35,10 @@ urlpatterns = [
     path('league/<int:id>/update/', views.league_update_view, name='update-league'),
     path('league/create/', views.league_create_view, name='create-league'),
     path('leagues/', views.league_list_view, name='league-list'),
+    
+    path('game/<int:id>', views.game_detail_view, name='game-detail'),
+    path('game/<int:id>/update/', views.game_update_view, name='update-game'),
+    path('game/create/', views.game_create_view, name='create-game'),
+    path('games/', views.game_list_view, name='game-list'),
+
 ]
